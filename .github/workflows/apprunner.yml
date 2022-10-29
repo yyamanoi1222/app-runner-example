@@ -21,7 +21,7 @@ jobs:
         uses: awslabs/amazon-app-runner-deploy@main
         with:
           service: review_app-runner-example
-          image: 050707942567.dkr.ecr.ap-northeast-1.amazonaws.com/app-runner-test:latest
+          image: 050707942567.dkr.ecr.ap-northeast-1.amazonaws.com/app-runner-test:38bafd28619de30159a7c8195d7b46c68d00ca4b
           access-role-arn: ${{ secrets.ROLE_ARN }}
           region: ap-northeast-1
           cpu : 1
