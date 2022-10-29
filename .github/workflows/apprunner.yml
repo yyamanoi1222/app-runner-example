@@ -20,7 +20,7 @@ jobs:
         id: deploy-to-app-runner
         uses: awslabs/amazon-app-runner-deploy@main
         with:
-          service: app-runner-example
+          service: review_app-runner-example
           image: 050707942567.dkr.ecr.ap-northeast-1.amazonaws.com/app-runner-test:latest
           access-role-arn: ${{ secrets.ROLE_ARN }}
           region: ap-northeast-1
