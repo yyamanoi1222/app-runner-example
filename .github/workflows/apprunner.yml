@@ -1,0 +1,29 @@
+name: Deploy to App Runner on
+
+on:
+  push:
+      branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Configure aws creds
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-1
+      - name: Deploy to App Runner
+        id: deploy-to-app-runner
+        uses: awslabs/amazon-app-runner-deploy@main
+        with:
+          service: app-runner-example
+          image: 050707942567.dkr.ecr.ap-northeast-1.amazonaws.com/app-runner-test:latest
+          access-role-arn: ${{ secrets.ROLE_ARN }}
+          region: ap-northeast-1
+          cpu : 1
+          memory : 2
+          wait-for-service-stability: true
