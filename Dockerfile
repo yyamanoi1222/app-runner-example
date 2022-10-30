@@ -1,2 +1,2 @@
 FROM 'nginx:latest'
-RUN service nginx start
+# RUN service nginx start
