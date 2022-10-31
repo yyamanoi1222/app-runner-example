@@ -18,7 +18,8 @@ jobs:
           aws-region: ap-northeast-1
       - name: Deploy to App Runner
         id: deploy-to-app-runner
-        uses: awslabs/amazon-app-runner-deploy@main
+        #uses: awslabs/amazon-app-runner-deploy@main
+        uses: yyamanoi1222/amazon-app-runner-deploy@main
         with:
           service: review_app-runner-example
           image: 050707942567.dkr.ecr.ap-northeast-1.amazonaws.com/app-runner-test:latest
