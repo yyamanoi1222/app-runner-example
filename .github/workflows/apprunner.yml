@@ -19,7 +19,7 @@ jobs:
       - name: Deploy to App Runner
         id: deploy-to-app-runner
         #uses: awslabs/amazon-app-runner-deploy@main
-        uses: yyamanoi1222/amazon-app-runner-deploy@feature/output_service_url
+        uses: yyamanoi1222/amazon-app-runner-deploy@feature/add_env_var
         with:
           service: review_app-runner-example
           image: 050707942567.dkr.ecr.ap-northeast-1.amazonaws.com/app-runner-test:latest
@@ -28,6 +28,10 @@ jobs:
           cpu : 1
           memory : 2
           wait-for-service-stability: true
+          environmentVariables: >
+            {
+              "TEST_ENV": "VAR"
+            }
       - name: App Runner output
         run: echo "App runner output ${{ steps.deploy-to-app-runner.outputs.service-id }}"
       - name: App Runner output
