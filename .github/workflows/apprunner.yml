@@ -30,7 +30,8 @@ jobs:
           wait-for-service-stability: true
           tags: >
             {
-              "TEST_ENV": "VAR"
+              "TEST_ENV": "VA",
+              "TEST_ENVV": "VAA"
             }
       - name: App Runner output
         run: echo "App runner output ${{ steps.deploy-to-app-runner.outputs.service-id }}"
