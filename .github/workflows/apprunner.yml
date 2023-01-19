@@ -28,6 +28,8 @@ jobs:
           cpu : 1
           memory : 2
           wait-for-service-stability: true
+          tags: >
+            { "env": "test" }
       - name: App Runner output
         run: echo "App runner output ${{ steps.deploy-to-app-runner.outputs.service-id }}"
       - name: App Runner output
