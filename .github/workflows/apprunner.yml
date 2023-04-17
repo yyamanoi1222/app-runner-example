@@ -22,7 +22,7 @@ jobs:
         uses: yyamanoi1222/amazon-app-runner-deploy@feature/support_failed_on_rollback
         with:
           service: abreview_app-runner-example
-          image: 050707942567.dkr.ecr.ap-northeast-1.amazonaws.com/app-runner-test:test
+          image: 050707942567.dkr.ecr.ap-northeast-1.amazonaws.com/app-runner-test:te
           access-role-arn: ${{ secrets.ROLE_ARN }}
           region: ap-northeast-1
           cpu : 1
