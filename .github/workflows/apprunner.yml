@@ -19,7 +19,9 @@ jobs:
       - name: Deploy to App Runner
         id: deploy-to-app-runner
         #uses: awslabs/amazon-app-runner-deploy@main
-        uses: yyamanoi1222/amazon-app-runner-deploy@feature/support_failed_on_rollback
+        uses: yyamanoi1222/amazon-app-runner-deploy@feature/support_secret_env
+        env:
+          TEST_ENV: /test/test_parameter
         with:
           service: abreview_app-runner-example
           image: 050707942567.dkr.ecr.ap-northeast-1.amazonaws.com/app-runner-test:te
@@ -30,6 +32,8 @@ jobs:
           wait-for-service-stability: true
           tags: >
             { "env": "test" }
+          copy-secret-env-vars: |
+            TEST_ENV
       - name: App Runner output
         run: echo "App runner output ${{ steps.deploy-to-app-runner.outputs.service-id }}"
       - name: App Runner output
